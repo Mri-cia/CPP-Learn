@@ -22,7 +22,7 @@ bool User::operator==(const User& other){
 }
 
 void User::printInfo(){
-    logn("---------- Login ----------");
+    logn("---------- Balance ----------");
     log("Account Balance: "); logn(balance);
-    logn("----------=======----------");
+    logn("----------=========----------");
 }

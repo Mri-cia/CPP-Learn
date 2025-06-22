@@ -12,6 +12,8 @@ int main() {
     int indexApp = 1;
 
     while(indexApp != 0){
+        system("cls");
+
         loginMenu();
         log("Choose: ");
         int loginChoose;
@@ -33,9 +35,9 @@ int main() {
             User& activeUser = DataUser::getUser(name);
 
             while(indexUserMenu != 0){
-
+                
                 if(DataUser::verifyUser(tempUser)){
-
+                    system("cls");
                     userMenu();
                     log("Choose: ");
                     int menuChoose;
@@ -48,6 +50,8 @@ int main() {
                         int depositValue;
                         std::cin >> depositValue;
                         activeUser.deposit(depositValue);
+                        
+                        waitForEnter();
                         break;
 
                     case 2:
@@ -55,6 +59,8 @@ int main() {
                         int withdrawValue;
                         std::cin >> withdrawValue;
                         activeUser.withdraw(withdrawValue);
+                        
+                        waitForEnter();
                         break; 
 
                     case 3: {
@@ -68,11 +74,15 @@ int main() {
                         User& targeted = DataUser::getUser(targetUser);
 
                         DataUser::transferIn(activeUser, targeted, value);
+                        
+                        waitForEnter();
                         break;
                     }
 
                     case 4:
                         activeUser.printInfo();
+                        
+                        waitForEnter();
                         break;
 
                     case 0:
@@ -103,6 +113,7 @@ int main() {
 }
 
 void loginMenu(){
+    logn("");
     logn("---------- Login ----------");
     logn("1. Enter ");
     logn("0. Exit ");
@@ -110,6 +121,7 @@ void loginMenu(){
 }
 
 void userMenu(){
+    logn("");
     logn("---------- Bank ----------");
     logn("1. Deposit ");
     logn("2. Withdraw ");
@@ -118,3 +130,4 @@ void userMenu(){
     logn("0. Logout ");
     logn("----------======----------");
 }
+

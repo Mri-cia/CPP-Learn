@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <limits>
 
 #ifndef STRING_UTIL_H
 #define STRING_UTIL_H
@@ -24,5 +25,10 @@ inline void logn(const int& msg){
     std::cout << msg << endl;
 }
 
+inline void waitForEnter() {
+    logn("Press Enter to continue...");
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.get();
+}
 
 #endif
